@@ -17,7 +17,7 @@ import groovy.io.FileType
 
 
 def coverageSourceDirs = [
-        '../app/src/main/java'
+        'app/src/main/java'
 ]
 
 android {
