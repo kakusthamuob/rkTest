@@ -73,25 +73,10 @@ task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test"]) {
     sourceDirectories = files(coverageSourceDirs)
     executionData = files('build/jacoco/testReleaseUnitTest.exec')
 
-    println("File exists? file list----")
-//    def list = []
-//
-//    def dir = new File("path_to_parent_dir")
-//    dir.eachFileRecurse (FileType.FILES) { file ->
-//        list << file
-//    }
-//    new File("../app/build/jacoco").eachFile() { file->
-//        println file.getName()
-//    }
-
-    //assert file("/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/reports/jacoco/JacocoReleaseReport/html/index.html").exists()
-    assert file("../app/build/jacoco/testReleaseUnitTest.exec").exists()
-
-    println("File exists? End..")
 
 //    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 //    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
-    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' ]'
+    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 //    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
 
 
