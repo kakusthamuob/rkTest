@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-//apply from: 'jacoco.gradle'
-apply plugin: 'jacoco'
+apply from: 'jacoco.gradle'
+//apply plugin: 'jacoco'
 
 
 jacoco {
@@ -55,7 +55,13 @@ sourceSets {
         }
     }
 }
-
+task jacocoTestReport(type:JacocoReport, dependsOn: ["clean test"]) {
+    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
 task JacocoReleaseReport(type:JacocoReport, dependsOn: ["clean test"]) {
     group = "Reporting"
     println("---rk---")
