@@ -46,6 +46,9 @@ project.afterEvaluate {
                 additionalSourceDirs = files(coverageSourceDirs)
                 sourceDirectories = files(coverageSourceDirs)
                 executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+                //if (project.hasProperty("teamcity")) {
+                    println '##teamcity[jacocoReport dataPath=\'../app/build/jacoco/${testTaskName}.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+                //}
 
                 reports {
                     xml.enabled = true
