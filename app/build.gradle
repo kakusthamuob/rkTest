@@ -52,7 +52,7 @@ sourceSets {
     }
 }
 
-task JacocoReleaseReport(type:JacocoReport, dependsOn: []) {
+task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test"]) {
     group = "Reporting"
     println("---rk---")
     println(System.getProperty("user.dir"))
@@ -61,7 +61,7 @@ task JacocoReleaseReport(type:JacocoReport, dependsOn: []) {
     }
     description = "Generate Jacoco coverage reports for staging debug"
     classDirectories = fileTree(
-            dir: '../app/build/intermediates/classes/release/uob',
+            dir: '../app/build/intermediates/classes/release/com',
             excludes: []
     )
 
