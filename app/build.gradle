@@ -9,7 +9,7 @@ apply plugin: 'jacoco'
 
 
 jacoco {
-    toolVersion = "0.7.9"
+    toolVersion = "0.7.5.201505241946"
 }
 
 import groovy.io.FileType
