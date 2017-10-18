@@ -4,7 +4,17 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply from: 'jacoco.gradle'
+//apply from: 'jacoco.gradle'
+apply plugin: 'jacoco'
+
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
+def coverageSourceDirs = [
+        '../app/src/main/java'
+]
 
 android {
     compileSdkVersion 26
@@ -42,6 +52,31 @@ sourceSets {
     }
 }
 
+task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test","testReleaseUnitTest"]) {
+    group = "Reporting"
+
+    onlyIf = {
+        true
+    }
+    description = "Generate Jacoco coverage reports for staging debug"
+    classDirectories = fileTree(
+            dir: '../app/build/intermediates/classes/release/uob',
+            excludes: []
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('build/jacoco/testReleaseUnitTest.exec')
+
+    if (project.hasProperty("teamcity")) {
+        println '##teamcity[jacocoReport dataPath=\'../app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+    }
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
