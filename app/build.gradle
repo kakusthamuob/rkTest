@@ -65,7 +65,7 @@ task JacocoReleaseReport(type:JacocoReport, dependsOn: ["clean test"]) {
     }
     description = "Generate Jacoco coverage reports for staging debug"
     classDirectories = fileTree(
-            dir: '../app/build/intermediates/classes/release/com',
+            dir: 'app/build/intermediates/classes/release/com',
             excludes: []
     )
 
