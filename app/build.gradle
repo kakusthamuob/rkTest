@@ -56,7 +56,7 @@ sourceSets {
     }
 }
 
-task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test"]) {
+task JacocoReleaseReport(type:JacocoReport, dependsOn: ["clean test"]) {
     group = "Reporting"
     println("---rk---")
     println(System.getProperty("user.dir"))
