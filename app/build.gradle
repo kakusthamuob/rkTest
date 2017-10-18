@@ -71,7 +71,8 @@ task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test"]) {
 
 
 //    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-    println '##teamcity[jacocoReport dataPath=\'../app/build/jacoco/testReleaseUnitTest.exec\' ]'
+//    println '##teamcity[jacocoReport dataPath=\'../app/build/jacoco/testReleaseUnitTest.exec\' ]'
+    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
 
 
     reports {
