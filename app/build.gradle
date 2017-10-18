@@ -69,9 +69,9 @@ task JacocoReleaseReport(type:JacocoReport, dependsOn: []) {
     sourceDirectories = files(coverageSourceDirs)
     executionData = files('build/jacoco/testReleaseUnitTest.exec')
 
-    if (project.hasProperty("teamcity")) {
-        println '##teamcity[jacocoReport dataPath=\'../app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-    }
+
+    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+
 
     reports {
         xml.enabled = true
