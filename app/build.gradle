@@ -52,9 +52,10 @@ sourceSets {
     }
 }
 
-task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test","testReleaseUnitTest"]) {
+task JacocoReleaseReport(type:JacocoReport, dependsOn: []) {
     group = "Reporting"
-
+    println("---rk---")
+    println(System.getProperty("user.dir"))
     onlyIf = {
         true
     }
