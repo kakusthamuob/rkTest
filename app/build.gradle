@@ -7,10 +7,10 @@ apply plugin: 'kotlin-android-extensions'
 //apply from: 'jacoco.gradle'
 apply plugin: 'jacoco'
 
-//
-//jacoco {
-//    toolVersion = "0.7.1.201405082137"
-//}
+
+jacoco {
+    toolVersion = "0.7.9"
+}
 
 import groovy.io.FileType
 
