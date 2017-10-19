@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 //apply from: 'jacoco.gradle'
-//apply plugin: 'jacoco'
+apply plugin: 'jacoco'
 
 //apply plugin: 'jacoco' //code coverage
 
@@ -18,9 +18,9 @@ apply plugin: 'kotlin-android-extensions'
 //    toolVersion = "0.7.5+"
 //}
 
-//jacoco {
-//    toolVersion = "0.7.6.201602180812"
-//}
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
 
 //jacoco {
 //    toolVersion = "0.7.5+"
@@ -78,35 +78,35 @@ sourceSets {
 //    }
 //}
 //
-//task jacocoTestReport(type:JacocoReport) {
-////    group = "Reporting"
-//    println("---rk---")
-////    println(System.getProperty("user.dir"))
-////    onlyIf = {
-////        true
-////    }
-////    description = "Generate Jacoco coverage reports for staging debug"
-////    classDirectories = fileTree(
-////            dir: 'app/build/intermediates/classes/release/com',
-////            excludes: []
-////    )
-////
-////    additionalSourceDirs = files(coverageSourceDirs)
-////    sourceDirectories = files(coverageSourceDirs)
-////    executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
-////
-////
-//////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-//////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
-//    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-//////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
-//
-//    reports {
-//        html.enabled = true
-//        xml.enabled = true
-//        csv.enabled = false
+task jacocoTestReport(type:JacocoReport) {
+//    group = "Reporting"
+    println("---rk---")
+//    println(System.getProperty("user.dir"))
+//    onlyIf = {
+//        true
 //    }
-//}
+//    description = "Generate Jacoco coverage reports for staging debug"
+//    classDirectories = fileTree(
+//            dir: 'app/build/intermediates/classes/release/com',
+//            excludes: []
+//    )
+//
+//    additionalSourceDirs = files(coverageSourceDirs)
+//    sourceDirectories = files(coverageSourceDirs)
+//    executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
+//
+//
+////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
+    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/createReleaseCoverageReport.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
+
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
