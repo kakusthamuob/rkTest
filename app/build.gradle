@@ -62,7 +62,7 @@ task jacocoTestReport(type:JacocoReport, dependsOn: ["test"]) {
         html.enabled = true
     }
 }
-task JacocoReleaseReport(type:JacocoReport, dependsOn: ["clean test"]) {
+task JacocoReleaseReport(type:JacocoReport, dependsOn: ["test"]) {
     group = "Reporting"
     println("---rk---")
     println(System.getProperty("user.dir"))
