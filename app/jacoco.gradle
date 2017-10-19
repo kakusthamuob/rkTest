@@ -47,7 +47,7 @@ project.afterEvaluate {
                 sourceDirectories = files(coverageSourceDirs)
                 executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
                 //if (project.hasProperty("teamcity")) {
-                    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+                    println '##teamcity[jacocoReport dataPath=\'${project.buildDir}/jacoco/${testTaskName}.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
                 //}
 
                 reports {
