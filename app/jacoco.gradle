@@ -1,7 +1,7 @@
 apply plugin: 'jacoco'
 
 jacoco {
-    toolVersion = "0.7.5+"
+    toolVersion = "0.7.5.201505241946"
 }
 
 project.afterEvaluate {
@@ -46,12 +46,6 @@ project.afterEvaluate {
                 additionalSourceDirs = files(coverageSourceDirs)
                 sourceDirectories = files(coverageSourceDirs)
                 executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
-                //execPath1 = '${project.buildDir}/jacoco/${testTaskName}.exec'
-                //if (project.hasProperty("teamcity")) {
-//                println '---rk----1--'
-//                    println '##teamcity[jacocoReport dataPath=\'$project.buildDir/jacoco/$testTaskName.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-                //}
-
 
                 reports {
                     xml.enabled = true
