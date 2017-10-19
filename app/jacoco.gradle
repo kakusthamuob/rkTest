@@ -50,6 +50,7 @@ project.afterEvaluate {
                 //if (project.hasProperty("teamcity")) {
                     println '##teamcity[jacocoReport dataPath=\'$project.buildDir/jacoco/$testTaskName.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
                 //}
+                
 
                 reports {
                     xml.enabled = true
