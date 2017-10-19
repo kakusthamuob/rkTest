@@ -55,7 +55,7 @@ sourceSets {
         }
     }
 }
-task jacocoTestReport(type:JacocoReport, dependsOn: ["clean test"]) {
+task jacocoTestReport(type:JacocoReport, dependsOn: ["test"]) {
     println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
     reports {
         xml.enabled = true
