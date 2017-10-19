@@ -4,9 +4,19 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply from: 'jacoco.gradle'
+//apply from: 'jacoco.gradle'
 //apply plugin: 'jacoco'
 
+apply plugin: 'jacoco' //code coverage
+
+//repositories {
+//    mavenLocal()
+//    mavenCentral()
+//}
+
+//jacoco {
+//    toolVersion = "0.7.5+"
+//}
 
 //jacoco {
 //    toolVersion = "0.7.6.201602180812"
@@ -69,7 +79,7 @@ task jacocoTestReport2(type:JacocoReport, dependsOn: ["test"]) {
 
 task jacocoTestReport(type:JacocoReport) {
 //    group = "Reporting"
-//    println("---rk---")
+    println("---rk---")
 //    println(System.getProperty("user.dir"))
 //    onlyIf = {
 //        true
@@ -87,7 +97,7 @@ task jacocoTestReport(type:JacocoReport) {
 //
 ////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 ////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
-    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+//    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 ////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
 
     reports {
