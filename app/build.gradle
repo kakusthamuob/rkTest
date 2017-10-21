@@ -116,7 +116,7 @@ task jacocoResults(type: JacocoReport, dependsOn: ['test']) {
     // use hidden configuration, for details look into JacocoPlugin.groovy
     jacocoClasspath = project.configurations['jacocoAgent']
 
-    classDirectories = files(fileTree(dir: 'build/intermediates/classes/debug', excludes: [
+    classDirectories = files(fileTree(dir: 'build/intermediates/classes/release', excludes: [
             '*/R.class', '*/R$.class', '*/BuildConfig.', '*/Manifest*.*']))
 
     sourceDirectories = files(['src/main/java'])
