@@ -114,7 +114,7 @@ task jacocoResults(type: JacocoReport, dependsOn: ['test']) {
     group = "Reporting"
 
     // use hidden configuration, for details look into JacocoPlugin.groovy
-    jacocoClasspath = project.configurations['androidJacocoAnt']
+    jacocoClasspath = project.configurations['jacocoAgent']
 
     classDirectories = files(fileTree(dir: 'build/intermediates/classes/debug', excludes: [
             '*/R.class', '*/R$.class', '*/BuildConfig.', '*/Manifest*.*']))
