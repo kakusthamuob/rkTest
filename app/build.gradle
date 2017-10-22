@@ -79,36 +79,36 @@ sourceSets {
 //    }
 //}
 //
-//task jacocoTestReport(type:JacocoReport) {
-//    group = "Reporting"
-//    println("---rk---")
-////    println(System.getProperty("user.dir"))
-//    onlyIf = {
-//        true
-//    }
-//    description = "Generate Jacoco coverage reports for staging debug"
-//    //jacocoClasspath = project.configurations['androidJacocoAnt']
-//    classDirectories = fileTree(
-//            dir: 'app/build/intermediates/classes/release/com',
-//            excludes: []
-//    )
+task jacocoTestReport(type:JacocoReport, dependsOn: ['testReleaseUnitTest']) {
+    group = "Reporting"
+    println("---rk---")
+//    println(System.getProperty("user.dir"))
+    onlyIf = {
+        true
+    }
+    description = "Generate Jacoco coverage reports for staging debug"
+    //jacocoClasspath = project.configurations['androidJacocoAnt']
+    classDirectories = fileTree(
+            dir: 'app/build/intermediates/classes/release/com',
+            excludes: []
+    )
+
+    additionalSourceDirs = files(coverageSourceDirs)
+    sourceDirectories = files(coverageSourceDirs)
+    executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
 //
-//    additionalSourceDirs = files(coverageSourceDirs)
-//    sourceDirectories = files(coverageSourceDirs)
-//    executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
-////
-////
-//////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-//////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
-//    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-//////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
 //
-//    reports {
-//        html.enabled = true
-//        xml.enabled = true
-//        csv.enabled = false
-//    }
-//}
+////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
+    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
+
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+    }
+}
 //
 //task jacocoResults(type: JacocoReport, dependsOn: ['test']) {
 //    description = "Generates Jacoco coverage reports: XML and HTML"
