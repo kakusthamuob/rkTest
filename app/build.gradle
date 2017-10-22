@@ -100,7 +100,7 @@ task jacocoTestReport(type:JacocoReport, dependsOn: ['testReleaseUnitTest']) {
 //
 ////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 ////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/Downloads/buildAgent/work/eb94917032b0493c/app/build/reports/jacoco/testDebugUnitTestCoverage/JacocoReleaseReport.xml\' ]'
-    println '##teamcity[jacocoReport dataPath="$buildDir/jacoco/testReleaseUnitTest.exec" includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+    println '##teamcity[jacocoReport dataPath=\'$buildDir/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
 ////    println '##teamcity[jacocoReport dataPath=\'/Users/ramakrishnakakustham/TCTestProjs/rkTest/app/build/jacoco/testReleaseUnitTest.exec\' ]'
 
     reports {
