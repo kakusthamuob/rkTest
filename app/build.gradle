@@ -95,7 +95,7 @@ task jacocoTestReport(type:JacocoReport, dependsOn: ['testReleaseUnitTest']) {
 
     additionalSourceDirs = files(coverageSourceDirs)
     sourceDirectories = files(coverageSourceDirs)
-    executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
+    //executionData = files('app/build/jacoco/testReleaseUnitTest.exec')
 //
 //
 ////    println '##teamcity[jacocoReport dataPath=\'build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
