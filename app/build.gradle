@@ -109,25 +109,25 @@ sourceSets {
 //    }
 //}
 //
-task jacocoResults(type: JacocoReport, dependsOn: ['test']) {
-    description = "Generates Jacoco coverage reports: XML and HTML"
-    group = "Reporting"
-
-    // use hidden configuration, for details look into JacocoPlugin.groovy
-    jacocoClasspath = project.configurations['jacocoAgent']
-
-    classDirectories = files(fileTree(dir: 'build/intermediates/classes/release', excludes: [
-            '*/R.class', '*/R$.class', '*/BuildConfig.', '*/Manifest*.*']))
-
-    sourceDirectories = files(['src/main/java'])
-    executionData = fileTree(dir: rootProject.rootDir, includes: ['*.exec', '*.ec'])
-    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
-    reports {
-        html.enabled = true
-        xml.enabled = true
-        csv.enabled = false
-    }
-}
+//task jacocoResults(type: JacocoReport, dependsOn: ['test']) {
+//    description = "Generates Jacoco coverage reports: XML and HTML"
+//    group = "Reporting"
+//
+//    // use hidden configuration, for details look into JacocoPlugin.groovy
+//    jacocoClasspath = project.configurations['jacocoAgent']
+//
+//    classDirectories = files(fileTree(dir: 'build/intermediates/classes/release', excludes: [
+//            '*/R.class', '*/R$.class', '*/BuildConfig.', '*/Manifest*.*']))
+//
+//    sourceDirectories = files(['src/main/java'])
+//    executionData = fileTree(dir: rootProject.rootDir, includes: ['*.exec', '*.ec'])
+//    println '##teamcity[jacocoReport dataPath=\'app/build/jacoco/testReleaseUnitTest.exec\' includes=\'com.example.ramakrishnakakustham.ccsampletest.*\' excludes=\'**/R.class **/R$*.class **/*$ViewInjector*.* **/BuildConfig.* **/Manifest*.*\']'
+//    reports {
+//        html.enabled = true
+//        xml.enabled = true
+//        csv.enabled = false
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
